@@ -1,0 +1,42 @@
+<div ng-controller="UserListController">
+
+    <div class="row">
+        <div class="large-12 columns">
+
+            <form>
+                <fieldset>
+                    <legend>Search Patients</legend>
+
+                    <label>Patient Name
+                        <input type="text" placeholder="" ng-model="searchName">
+                    </label>
+
+                    <input type="button" class="button small" ng-click="updatePatientList(searchName)" value="Search">
+
+                </fieldset>
+            </form>
+
+
+            <table ng-if="patientList.length" width="100%">
+                <thead>
+                <tr>
+                    <th width="200">Name</th>
+                    <th width="150">Date of Birth</th>
+                    <th width="150"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat=" patient in patientList ">
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.dob }}</td>
+                    <td class="right">
+                        <a href="#/patient/{{ $index }}">View</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>

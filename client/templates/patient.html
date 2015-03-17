@@ -1,0 +1,25 @@
+
+
+<div ng-controller="PatientController">
+
+
+    <div class="row">
+        <div class="large-12 columns">
+
+            <ul class="breadcrumbs">
+                <li><a href="#home">Back</a></li>
+                <li class="current">Patient Data</li>
+            </ul>
+
+            <div class="panel">
+
+            <dl>
+                <dt ng-repeat-start="(k,v) in patientData">{{k | uppercase}}</dt>
+                <dd ng-repeat-end>{{v}}</dd>
+            </dl>
+
+            </div>
+        </div>
+    </div>
+
+</div>
