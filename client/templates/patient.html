@@ -18,22 +18,39 @@
                 <div class="row">
                     <div class="large-4 columns">
                         <dl>
-                            <dt ng-repeat-start="(k,v) in patientData">{{k | uppercase}}</dt>
-                            <dd ng-repeat-end>{{v}}</dd>
+                            <dt>Name</dt>
+                            <dd>{{ patientData.name }}</dd>
+                            <dt>DOB</dt>
+                            <dd>{{ patientData.dob }}</dd>
+                            <dt>ID</dt>
+                            <dd>{{ patientData.id }}</dd>
+                            <dt>Gender</dt>
+                            <dd>{{ patientData.gender | uppercase }}</dd>
                         </dl>
                     </div>
                     <div class="large-4 columns">
-                        <h5>Allergies</h5>
-                        <ul>
-                            <li>example</li>
-                        </ul>
+
+                        <dl>
+                            <dt>Address</dt>
+                            <dd> 123 A St.</dd>
+                            <dt>Contact</dt>
+                            <dd>111-111-1111</dd>
+                            <dt>Care Plan</dt>
+                            <dd>Blue Shield #123</dd>
+                        </dl>
 
                     </div>
                     <div class="large-4 columns">
-                        <h5>Allergies</h5>
-                        <ul>
-                            <li>example</li>
-                        </ul>
+                        <dl>
+                        <dt>Allergies</dt>
+                            <dl>
+
+                                <ul>
+                                    <li>Peanuts</li>
+                                    <li>Orange</li>
+                                </ul>
+                            </dl>
+
 
                     </div>
                 </div>
