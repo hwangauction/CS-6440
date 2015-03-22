@@ -17,5 +17,5 @@ https://taurus.i3l.gatech.edu:8443/HealthPort/fhir/Patient/1?__format=json
 
 /backend/pdmp
 POST parameter: state (ie. CA)
-POST parameter: id (identifier of the patient)
+POST parameter: id (identifier of the patient, SSN?)
 Returns mock prescription data from the given state in JSON format
