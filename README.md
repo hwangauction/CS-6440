@@ -1,3 +1,6 @@
 # CS-6440
 
-Download the zip and open index.html in the browser. Use any login.
+
+VPN Connection https://piazza.com/class/i4eoysegvxp2db?cid=211
+
+FIHR Endpoints http://www.hl7.org/implement/standards/fhir/resourcelist.html
