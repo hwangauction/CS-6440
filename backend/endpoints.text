@@ -1,0 +1,21 @@
+#Authorization
+
+/backend/auth/login 
+POST parameters: username, password
+
+/backend/auth/register
+POST parameters: username, password
+
+
+
+#FIHR
+
+/backend/ehr
+POST parameter: url 
+This is the URL to call on the Gatech FIHR server, ie "Patient/1" will return the JSON response from 
+https://taurus.i3l.gatech.edu:8443/HealthPort/fhir/Patient/1?__format=json
+
+/backend/pdmp
+POST parameter: state (ie. CA)
+POST parameter: id (identifier of the patient)
+Returns mock prescription data from the given state in JSON format
