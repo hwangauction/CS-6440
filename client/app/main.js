@@ -19,12 +19,15 @@
                 templateUrl: 'templates/login.html',
                 controller: 'LoginController'
             }).
+            when('/logout', {
+                redirectTo: '/login'
+            }).
             when('/patient/:index', {
                 templateUrl: 'templates/patient.html',
                 controller: 'PatientController'
             }).
             otherwise({
-                redirectTo: '/home'
+                redirectTo: '/login'
             });
     }]);
 

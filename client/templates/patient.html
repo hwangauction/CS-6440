@@ -9,14 +9,63 @@
             <ul class="breadcrumbs">
                 <li><a href="#home">Back</a></li>
                 <li class="current">Patient Data</li>
+                <li class="right"><a href="#logout">Log Out</a></li>
             </ul>
 
             <div class="panel">
 
-            <dl>
-                <dt ng-repeat-start="(k,v) in patientData">{{k | uppercase}}</dt>
-                <dd ng-repeat-end>{{v}}</dd>
-            </dl>
+
+                <div class="row">
+                    <div class="large-4 columns">
+                        <dl>
+                            <dt ng-repeat-start="(k,v) in patientData">{{k | uppercase}}</dt>
+                            <dd ng-repeat-end>{{v}}</dd>
+                        </dl>
+                    </div>
+                    <div class="large-4 columns">
+                        <h5>Allergies</h5>
+                        <ul>
+                            <li>example</li>
+                        </ul>
+
+                    </div>
+                    <div class="large-4 columns">
+                        <h5>Allergies</h5>
+                        <ul>
+                            <li>example</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="large-7 columns">
+
+
+            <div class="panel">
+                <h5>Medical History</h5>
+                <ul>
+                    <li>example</li>
+                </ul>
+
+            </div>
+            <div class="panel">
+                <h5>Immunization History</h5>
+                <ul>
+                    <li>example</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="large-5 columns">
+
+            <div class="panel">
+                <h5>Prescription & Medication History</h5>
+                <ul>
+                    <li>example</li>
+                </ul>
 
             </div>
         </div>
