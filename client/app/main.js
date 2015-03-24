@@ -48,6 +48,20 @@
 
         var index = $routeParams.index;
 
+
+        $scope.prescriptionData = [];
+        var temp = "3/24/2015	1	3/24/2015	OXYCODONE HCL 5 MG TABLET	60	8	FLICKER, MD, MARK H	223329	WAL-MART PHARMACY 0001	0	MEDICARE\n\
+        3/25/2015	2	3/24/2015	CLONAZEPAM 1 MG TABLET	60	30	FLICKER, MD, MARK H	89899	FRED'S PHARMACY 145	2	MEDICARE\n\
+        3/21/2015	1	3/15/2015	LORAZEPAM 1 MG TABLET	90	30	TOOK, MD, SAM J	9789	WAL-MART PHARMACY 0001	4	CASH\n\
+        3/1/2015	1	3/1/2015	CLONAZEPAM 1 MG TABLET	60	30	FLICKER, MD, MARK H	78988	WAL-MART PHARMACY 0001	4	MEDICARE\n\
+        2/26/2015	1	2/26/2015	OXYCODONE HCL 5 MG TABLET	60	30	FLICKER, MD, MARK H	203327	FRED'S PHARMACY 145	0	MEDICARE\n\
+        2/21/2015	1	2/18/2015	LORAZEPAM 1 MG TABLET	90	30	TOOK, MD, SAM J	9701	WAL-MART PHARMACY 0001	5	CASH";
+        temp = temp.split("\n");
+        $.each(temp, function(k,v) {
+            $scope.prescriptionData.push( v.split("\t") );
+        })
+
+
         FIHRService.get( index ).success( function(data) {
             $scope.patientData = data;
         })
@@ -75,9 +89,9 @@
 
         var cacheData = [
             {
-                id : 123,
+                id : 1,
                 name: 'John Doe',
-                dob: '01/01/2015',
+                dob: '03/21/1970',
                 gender: 'm'
             }
         ];

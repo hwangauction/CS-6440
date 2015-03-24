@@ -22,8 +22,6 @@
                             <dd>{{ patientData.name }}</dd>
                             <dt>DOB</dt>
                             <dd>{{ patientData.dob }}</dd>
-                            <dt>ID</dt>
-                            <dd>{{ patientData.id }}</dd>
                             <dt>Gender</dt>
                             <dd>{{ patientData.gender | uppercase }}</dd>
                         </dl>
@@ -32,22 +30,22 @@
 
                         <dl>
                             <dt>Address</dt>
-                            <dd> 123 A St.</dd>
+                            <dd>243 MAY RD, MACON, MS 39750</dd>
                             <dt>Contact</dt>
-                            <dd>111-111-1111</dd>
+                            <dd>Home 897-129-0071</dd>
                             <dt>Care Plan</dt>
-                            <dd>Blue Shield #123</dd>
+                            <dd>Blue Shield #BE129803</dd>
                         </dl>
 
                     </div>
                     <div class="large-4 columns">
                         <dl>
-                        <dt>Allergies</dt>
+                            <dt>Allergies</dt>
                             <dl>
 
                                 <ul>
-                                    <li>Peanuts</li>
-                                    <li>Orange</li>
+                                    <li>Peanut</li>
+                                    <li>Peach</li>
                                 </ul>
                             </dl>
 
@@ -56,35 +54,88 @@
                 </div>
             </div>
 
+        </div>
+        <div class="large-12 columns">
+            <h5>Prescription & Medication History</h5>
+            <table>
+                <thead>
+                <tr>
+                    <th>Drug</th>
+                    <th>Written</th>
+                    <th>Filled</th>
+                    <th>Quantity</th>
+                    <th>Days</th>
+                    <th>Prescriber</th>
+                    <th>RX #</th>
+                    <th>Pharmacy</th>
+                    <th>Refills</th>
+                    <th>Paid</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in prescriptionData">
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td>{{ item[5] }}</td>
+                    <td>{{ item[6] }}</td>
+                    <td>{{ item[7] }}</td>
+                    <td>{{ item[8] }}</td>
+                    <td>{{ item[9] }}</td>
+                    <td>{{ item[10] }}</td>
+                </tr>
+                </tbody>
+            </table>
+
 
         </div>
-        <div class="large-7 columns">
+        <div class="large-12 columns">
 
+            <h5>Medical History</h5>
 
-            <div class="panel">
-                <h5>Medical History</h5>
-                <ul>
-                    <li>example</li>
-                </ul>
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Condition</th>
+                    <th>Practitioner</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1/11/2014</td>
+                    <td>Diabetes</td>
+                    <td>FLICKER, MD, MARK H</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
 
-            </div>
-            <div class="panel">
-                <h5>Immunization History</h5>
-                <ul>
-                    <li>example</li>
-                </ul>
-
-            </div>
         </div>
-        <div class="large-5 columns">
+        <div class="large-12 columns">
 
-            <div class="panel">
-                <h5>Prescription & Medication History</h5>
-                <ul>
-                    <li>example</li>
-                </ul>
+            <h5>Immunization History</h5>
 
-            </div>
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>6/15/2014</td>
+                    <td>Tdap (ADACEL) 10-64 YRS	</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
         </div>
     </div>
 
