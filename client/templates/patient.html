@@ -12,66 +12,45 @@
                 <li class="right"><a href="#logout">Log Out</a></li>
             </ul>
 
-            <div class="panel">
 
-
-                <div class="row">
-                    <div class="large-4 columns">
-                        <dl>
-                            <dt>Name</dt>
-                            <dd>{{ patientData.name }}</dd>
-                            <dt>DOB</dt>
-                            <dd>{{ patientData.dob }}</dd>
-                            <dt>ID</dt>
-                            <dd>{{ patientData.id }}</dd>
-                            <dt>Gender</dt>
-                            <dd>{{ patientData.gender | uppercase }}</dd>
-                        </dl>
-                    </div>
-                    <div class="large-4 columns">
-
-                        <dl>
-                            <dt>Address</dt>
-                            <dd> 123 A St.</dd>
-                            <dt>Contact</dt>
-                            <dd>111-111-1111</dd>
-                            <dt>Care Plan</dt>
-                            <dd>Blue Shield #123</dd>
-                        </dl>
-
-                    </div>
-                    <div class="large-4 columns">
-                        <dl>
-                        <dt>Allergies</dt>
-                            <dl>
-
-                                <ul>
-                                    <li>Peanuts</li>
-                                    <li>Orange</li>
-                                </ul>
-                            </dl>
-
-
-                    </div>
+            <div>
+                <div class="right">
+                    {{ patientData.content.identifier[0].value }}
                 </div>
+                <h1> {{ patientData.content.name[0].family[0] }}, {{ patientData.content.name[0].given[0] }}</h1>
+
             </div>
-
-
         </div>
         <div class="large-7 columns">
 
 
             <div class="panel">
-                <h5>Medical History</h5>
+                <h5>Conditions</h5>
                 <ul>
-                    <li>example</li>
+
+                    <li ng-repeat="item in conditionData ">
+                        {{ item.published | date : shortDate }}
+                        {{ item.content.code.coding[0].display }}
+                        onset {{ item.content.onsetDate | date : shortDate }}
+
+
+
+                    </li>
                 </ul>
 
             </div>
             <div class="panel">
-                <h5>Immunization History</h5>
+                <h5>Observations</h5>
                 <ul>
-                    <li>example</li>
+                    <li ng-repeat="item in observationData ">
+                        {{ item.content.appliesDateTime | date : shortDate }}
+                        {{ item.content.name.coding[0].display }}
+
+                        {{ item.content.valueQuantity.value }}
+                        {{ item.content.valueQuantity.units }}
+
+
+                    </li>
                 </ul>
 
             </div>

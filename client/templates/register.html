@@ -5,7 +5,7 @@
 
             <form>
                 <fieldset>
-                    <legend>Please Log In</legend>
+                    <legend>Registration</legend>
 
                     <label>Email
                         <input type="text" placeholder="" required>
@@ -16,11 +16,20 @@
                         <input type="text" placeholder="" required>
                     </label>
 
-                    <input type="button" class="button" ng-click="submit()" value="Log In">
+                    <label>Confirm Password
+                        <input type="text" placeholder="" required>
+                    </label>
+
+
+                    <label>Authorization Code
+                        <input type="text" placeholder="" required>
+                    </label>
+
+                    <input type="button" class="button" ng-click="submit()" value="Register">
 
                     &nbsp;
                     &nbsp;
-                    <a href="#register">Register</a>
+                    <a href="#login">Log In</a>
                 </fieldset>
             </form>
         </div>

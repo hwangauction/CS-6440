@@ -8,7 +8,7 @@
 
             </ul>
 
-            <form>
+            <form ng-submit="updatePatientList(searchName)">
                 <fieldset>
                     <legend>Search Patients</legend>
 
@@ -16,7 +16,7 @@
                         <input type="text" placeholder="" ng-model="searchName">
                     </label>
 
-                    <input type="button" class="button small" ng-click="updatePatientList(searchName)" value="Search">
+                    <input type="submit" class="button small" value="Search">
 
                 </fieldset>
             </form>
@@ -26,14 +26,14 @@
                 <thead>
                 <tr>
                     <th width="200">Name</th>
-                    <th width="150">Date of Birth</th>
+                    <th width="150">ID</th>
                     <th width="150"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat=" patient in patientList ">
-                    <td>{{ patient.name }}</td>
-                    <td>{{ patient.dob }}</td>
+                    <td>{{ patient.content.name[0].family[0] }}, {{ patient.content.name[0].given[0] }}</td>
+                    <td>{{ patient.content.identifier[0].value }}</td>
                     <td class="right">
                         <a href="#/patient/{{ $index }}">View</a>
                     </td>
