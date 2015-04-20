@@ -1,6 +1,6 @@
 
 
-<div ng-controller="PatientController">
+<div >
 
 
     <div class="row">
@@ -14,7 +14,7 @@
 
             <div>
                 <div class="right">
-                    {{ patientData.content.identifier[0].value }}
+                    ID {{ patientData.content.identifier[0].value }}
                 </div>
                 <h1> {{ patientData.content.name[0].family[0] }}, {{ patientData.content.name[0].given[0] }}</h1>
 
@@ -22,33 +22,31 @@
         </div>
         <div class="large-12 columns">
             <h5>Prescription & Medication History</h5>
-            <table>
+            <table width="100%">
                 <thead>
                 <tr>
                     <th>Drug</th>
                     <th>Written</th>
                     <th>Filled</th>
                     <th>Quantity</th>
-                    <th>Days</th>
+                    <!--<th>Dosage</th>-->
+                    <!--<th>Instructions</th>-->
                     <th>Prescriber</th>
-                    <th>RX #</th>
-                    <th>Pharmacy</th>
                     <th>Refills</th>
-                    <th>Paid</th>
+                    <th>Source</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="item in prescriptionData">
-                    <td>{{ item[3] }}</td>
-                    <td>{{ item[2] }}</td>
-                    <td>{{ item[0] }}</td>
-                    <td>{{ item[4] }}</td>
-                    <td>{{ item[5] }}</td>
-                    <td>{{ item[6] }}</td>
-                    <td>{{ item[7] }}</td>
-                    <td>{{ item[8] }}</td>
-                    <td>{{ item[9] }}</td>
-                    <td>{{ item[10] }}</td>
+                <tr ng-repeat="item in medicationPrescriptionData">
+                    <td>{{ item.medication | uppercase }}</td>
+                    <td>{{ item.dateWritten | date: shortDate }}</td>
+                    <td>{{ item.dateFilled | date: shortDate }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <!--<td>{{ item.dosage }}</td>-->
+                    <!--<td>{{ item.instruction }}</td>-->
+                    <td>{{ item.prescriber | uppercase }}</td>
+                    <td>{{ item.refills }}</td>
+                    <td>{{ item.source | uppercase }}</td>
                 </tr>
                 </tbody>
             </table>
