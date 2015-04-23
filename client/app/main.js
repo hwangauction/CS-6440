@@ -129,9 +129,7 @@
 
                     combinedData.sort(function(a,b) {
                         return b.dateWritten.getTime() - a.dateWritten.getTime();
-                    })
-
-                    console.log(combinedData)
+                    }) 
 
                     $scope.medicationPrescriptionData = combinedData;
             })
