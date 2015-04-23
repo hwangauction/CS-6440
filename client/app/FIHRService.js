@@ -28,7 +28,10 @@
 
                 return {
                     success : function(cb) {
-                        cb( data.entry.reverse() );
+                        data.entry.sort(function(a, b) {
+                            return b.content.appliesDateTime.localeCompare(a.content.appliesDateTime )  ;
+                        })
+                        cb( data.entry );
                     },
                     error: function(){}
                 }
@@ -38,7 +41,10 @@
 
                 return {
                     success : function(cb) {
-                        cb( data.entry.reverse() );
+                        data.entry.sort(function(a, b) {
+                            return b.published.localeCompare( a.published )  ;
+                        })
+                        cb( data.entry );
                     },
                     error: function(){}
                 }
