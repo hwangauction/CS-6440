@@ -1,0 +1,103 @@
+
+
+<div >
+
+
+    <div class="row">
+        <div class="large-12 columns">
+
+            <ul class="breadcrumbs">
+                <li><a href="#home">Back</a></li>
+                <li class="current">Patient Data</li>
+                <li class="right"><a href="#logout">Log Out</a></li>
+            </ul>
+
+            <div ng-show="notFound == false && loading == false">
+                <div class="right">
+                    ID {{ patientData.resource.id }}
+                </div>
+                <h1> {{ patientData.resource.name[0].family[0] }}, {{ patientData.resource.name[0].given[0] }}</h1>
+
+            </div>
+        </div>
+
+        <div class="large-12 columns" ng-show="notFound">Patient not found.</div>
+
+
+        <div class="large-12 columns" ng-show="loading">Loading.</div>
+
+
+        <div class="large-12 columns" ng-show="notFound == false && loading == false">
+            <h5>Prescription & Medication History</h5>
+            <table width="100%">
+                <thead>
+                <tr>
+                    <th>Drug</th>
+                    <th>Written</th>
+                    <th>Filled</th>
+                    <th>Quantity</th>
+                    <!--<th>Dosage</th>-->
+                    <!--<th>Instructions</th>-->
+                    <th>Prescriber</th>
+                    <th>Refills</th>
+                    <th>Source</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in medicationPrescriptionData">
+                    <td>{{ item.medication | uppercase }}</td>
+                    <td>{{ item.dateWritten | date: shortDate }}</td>
+                    <td>{{ item.dateFilled | date: shortDate }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <!--<td>{{ item.dosage }}</td>-->
+                    <!--<td>{{ item.instruction }}</td>-->
+                    <td>{{ item.prescriber | uppercase }}</td>
+                    <td>{{ item.refills }}</td>
+                    <td>{{ item.source | uppercase }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div ng-if="!medicationPrescriptionData.length" class="none">None found.</div>
+
+            <div class="panel">
+                <h5>Conditions</h5>
+                <ul>
+
+                    <li ng-repeat="item in conditionData " ng-if="item.resource.code.coding">
+                        {{ item.resource.meta.lastUpdated | date : shortDate }}
+                        {{ item.resource.code.coding[0].display }}
+                        <span ng-if="item.resource.dateAsserted"> onset {{ item.resource.dateAsserted | date : shortDate }} </span>
+
+
+                    </li>
+
+                </ul>
+                <div ng-if="!conditionData.length" class="none">None found.</div>
+
+            </div>
+            <div class="panel">
+                <h5>Observations</h5>
+                <ul>
+                    <li ng-repeat="item in observationData " >
+                        {{ item.resource.meta.lastUpdated | date : shortDate }}
+
+                        <span ng-if="!item.resource.text.div">
+                            {{ item.resource.code.coding[0].display }}
+                        </span>
+
+
+                        {{ item.resource.valueQuantity.value }}
+                        {{ item.resource.valueQuantity.units }}
+
+                        {{ item.resource.text.div | htmlToPlaintext }}
+                    </li>
+
+                </ul>
+                <div ng-if="!observationData.length" class="none">None found.</div>
+
+        </div>
+
+
+    </div>
+
+</div>

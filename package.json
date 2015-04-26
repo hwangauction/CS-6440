@@ -1,0 +1,9 @@
+{
+  "name": "healthinfoapi",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "express": "~4.0.0",
+    "request": "2"
+  }
+}

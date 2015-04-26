@@ -1,0 +1,53 @@
+<div>
+
+    <div class="row">
+        <div class="large-12 columns">
+
+            <ul class="breadcrumbs">
+                <li class="right"><a href="#logout">Log Out</a></li>
+
+            </ul>
+
+            <form ng-submit="updatePatientList(searchName)">
+                <fieldset>
+                    <legend>Search Patients</legend>
+
+                    <label>Patient Name
+                        <input type="text" placeholder="" ng-model="searchName">
+                    </label>
+
+                    <input type="submit" class="button small" value="Search">
+
+                    <div>
+                        <a href="#/patient/1702">Sample patient with data</a><br>
+                        <a href="#/patient/21707">Sample patient with data</a><br>
+                    </div>
+
+
+                </fieldset>
+            </form>
+
+
+            <table ng-if="patientList.length" width="100%">
+                <thead>
+                <tr>
+                    <th width="200">Name</th>
+                    <th width="150">ID</th>
+                    <th width="150"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat=" patient in patientList ">
+                    <td>{{ patient.resource.name[0].family[0] }}, {{ patient.resource.name[0].given[0] }}</td>
+                    <td>{{ patient.resource.id }}</td>
+                    <td class="right">
+                        <a href="#/patient/{{ patient.resource.id }}">View</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
